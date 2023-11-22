@@ -8,6 +8,7 @@ data segment
     db "basic", 0
     db "iNfOrMaTiOn", 0
     db "weLcoMe tO cHiNa", 0
+    db 10, 13, '$'
 data ends
 
 
@@ -24,11 +25,24 @@ start:
     mov ax, 0
     mov bx, 0
 
+
  s: 
     int 7CH
     call len
     add bx, ax
     loop s
+
+    mov ah, 2
+    mov bh, 0
+    mov dh, 5
+    mov dl, 0
+    int 10H
+
+    mov ax,data
+    mov ds, ax
+    mov dx, 0
+    mov ah, 9
+    int 21H
 
     mov ax, 4c00H
     int 21H    
@@ -48,6 +62,7 @@ ok:
     pop si
     pop cx
     ret
+
 
 code ends
 
