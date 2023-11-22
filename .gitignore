@@ -1,0 +1,41 @@
+#======================================
+# .gitignore
+# 
+# 2015-01-09 created by cheungmine
+#======================================
+.git
+
+UpgradeLog.XML
+~*
+*~
+*.7z
+*.a
+*.aps
+*.clw
+*.dll
+*.dsp
+*.dsw
+*.exp
+*.lastbuildstate
+*.lib
+*.log
+*.tlog
+*.idb
+*.ilk
+*.ncb
+*.obj
+*.opensdf
+*.pdb
+*.pyc
+*.rar
+*.res
+*.sdf
+*.so
+*.suo
+*.user
+*.zip
+
+# .DS_Store
+.DS_Store
+Thumbs.db
+
