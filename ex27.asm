@@ -29,21 +29,19 @@ start:
     mov es, ax
     mov ah, 'a'
  s:
-    mov es:[160 * 12 + 40 * 2 + 2], ah
+    mov es:[160 * 12 + 40 * 2], ah
     call delay
     inc ah
     cmp ah, 'z'
     jna s
 
     ; restore code 9 interrput program entry address
-    ; mov ax, 0
-    ; mov es, ax
-    ; push ds:[0]
-    ; pop ax
-    ; mov word ptr es:[9 * 4], ax
-    ; push ds:[1]
-    ; pop ax
-    ; mov word ptr es:[9 * 4 + 2], ax
+    mov ax, 0
+    mov es, ax
+    push ds:[0]
+    pop word ptr es:[9 * 4]
+    push ds:[2]
+    pop word ptr es:[9 * 4 + 2]
 
     mov ax, 4C00H
     int 21H
@@ -62,18 +60,19 @@ s1:
     jne s1
     pop dx
     pop ax
-    ret    
+    ret  
 
-    ; diy define code 9 interrput program
+; diy define code 9 interrput program
 int_9:
     push ax
+    push bx
     push es
     in al, 60H
     pushf
     pushf
-    pop ax
-    and ah, 11111100B
-    push ax
+    pop bx
+    and bh, 11111100B
+    push bx
     popf
     call dword ptr ds:[0]
 
