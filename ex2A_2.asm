@@ -35,12 +35,13 @@ switch_start:
     mov bl, ah
     mov bh, 0
     add bx, bx
-    call word ptr table[bx]    
+    call word ptr table[bx]   
+
+    jmp switch_ret
 
 push_char:
     mov byte ptr ds:[si], al
-    jmp switch_ret
-
+    ret
 switch_ret:
     pop bx
     ret
