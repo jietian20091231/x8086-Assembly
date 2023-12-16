@@ -1,6 +1,4 @@
 # x8086-Assembly
-----------
-I'm come from Github
 
 x8086-Assembly
 
